@@ -1,0 +1,18 @@
+<h1>Bloglar</h1>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Qidirish...">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+{% for blog in blogs %}
+    <li>
+        <a href="{% url 'blog_detail' blog.id %}">
+            {{ blog.title }}
+        </a>
+    </li>
+{% empty %}
+    <li>Blog yo'q</li>
+{% endfor %}
+</ul>
